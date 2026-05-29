@@ -101,7 +101,7 @@ INSERT INTO `vuelo` (`nrovuelo`, `fecha`, `hora`, `destino`) VALUES
 ('VL003', '2026-06-17', '10:15', 'Santiago - Puerto Montt');
 
 INSERT INTO `reserva` (`codigo`, `tipo`, `valor`, `rut`, `nrovuelo`) VALUES
-('R001', 'Economica', 35500, '12345678-9', 'VL001'),
+('R001', 'Económica', 35500, '12345678-9', 'VL001'),
 ('R002', 'Ejecutivo', 70000, '98765432-1', 'VL002'),
 ('R003', 'Turista', 46000, '11222333-4', 'VL003');
 

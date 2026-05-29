@@ -171,7 +171,7 @@ namespace WinAppReservas.Vista
             {
                 TReserva tres = new TReserva();
                 Reserva res = tres.buscarReserva(txtCodigoMod.Text);
-                if (res != null && res.tipo == "Economica")
+                if (res != null && res.tipo == "Económica")
                 {
                     MessageBox.Show("No sujeta a cambio", "AVISO DE SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;

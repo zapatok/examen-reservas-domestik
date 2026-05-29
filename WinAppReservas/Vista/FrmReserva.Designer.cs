@@ -166,7 +166,7 @@ namespace WinAppReservas.Vista
             this.cboTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipo.FormattingEnabled = true;
             this.cboTipo.Items.AddRange(new object[] {
-            "Economica",
+            "Económica",
             "Turista",
             "Ejecutivo"});
             this.cboTipo.Location = new System.Drawing.Point(125, 81);

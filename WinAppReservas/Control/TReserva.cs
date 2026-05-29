@@ -16,7 +16,7 @@ namespace WinAppReservas.Control
         {
             switch (tipo)
             {
-                case "Economica": return 30000;
+                case "Económica": return 30000;
                 case "Turista": return 40000;
                 case "Ejecutivo": return 60000;
                 default: return 0;
@@ -27,7 +27,7 @@ namespace WinAppReservas.Control
         {
             switch (tipo)
             {
-                case "Economica": return 5500;
+                case "Económica": return 5500;
                 case "Turista": return 6000;
                 case "Ejecutivo": return 10000;
                 default: return 0;
@@ -38,7 +38,7 @@ namespace WinAppReservas.Control
         {
             switch (tipo)
             {
-                case "Economica": return 500;
+                case "Económica": return 500;
                 case "Turista": return 700;
                 case "Ejecutivo": return 1000;
                 default: return 0;
@@ -54,7 +54,7 @@ namespace WinAppReservas.Control
         {
             switch (tipo)
             {
-                case "Economica": return "No sujeta a cambio";
+                case "Económica": return "No sujeta a cambio";
                 case "Turista": return "Para cambio debe pagar 10% del valor base";
                 case "Ejecutivo": return "Puede efectuar cambio sin costo";
                 default: return "";
