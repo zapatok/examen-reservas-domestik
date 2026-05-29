@@ -19,7 +19,6 @@ namespace WinAppReservas.Vista
             InitializeComponent();
         }
 
-        //Al cambiar tipo, calcular costo automaticamente
         private void cboTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboTipo.SelectedItem != null)
@@ -29,7 +28,6 @@ namespace WinAppReservas.Vista
             }
         }
 
-        //Ingresar reserva
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             try
@@ -98,7 +96,6 @@ namespace WinAppReservas.Vista
             }
         }
 
-        //Consultar reserva con condicion, costo y puntaje
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             try
@@ -134,7 +131,6 @@ namespace WinAppReservas.Vista
             }
         }
 
-        //Buscar reserva para modificar fecha del vuelo
         private void btnBuscarMod_Click(object sender, EventArgs e)
         {
             try
@@ -164,7 +160,6 @@ namespace WinAppReservas.Vista
             }
         }
 
-        //Modificar fecha del vuelo asociado
         private void btnModFecha_Click(object sender, EventArgs e)
         {
             try
@@ -195,7 +190,6 @@ namespace WinAppReservas.Vista
             }
         }
 
-        //Listar reservas
         private void btnListar_Click(object sender, EventArgs e)
         {
             dataReservas.DataSource = TReserva.listarReserva();
