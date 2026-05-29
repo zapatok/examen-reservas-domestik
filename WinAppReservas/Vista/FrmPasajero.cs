@@ -23,8 +23,15 @@ namespace WinAppReservas.Vista
         {
             try
             {
-                Pasajero pas = new Pasajero();
                 TPasajero tpas = new TPasajero();
+                //Verificar que no exista
+                Pasajero existente = tpas.buscarPasajero(txtRut.Text);
+                if (existente != null && existente.rut != null)
+                {
+                    MessageBox.Show("Pasajero ya existe en el sistema", "AVISO DE SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                Pasajero pas = new Pasajero();
                 pas.rut = txtRut.Text;
                 pas.nombre = txtNombre.Text;
                 pas.apellido = txtApellido.Text;

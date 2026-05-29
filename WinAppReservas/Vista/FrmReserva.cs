@@ -34,21 +34,55 @@ namespace WinAppReservas.Vista
         {
             try
             {
-                Reserva res = new Reserva();
+                //Verificar que el codigo no exista
                 TReserva tres = new TReserva();
+                Reserva existente = tres.buscarReserva(txtCodigo.Text);
+                if (existente != null && existente.codigo != null)
+                {
+                    MessageBox.Show("Reserva ya existe en el sistema", "AVISO DE SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                //Verificar que el pasajero exista
+                TPasajero tpas = new TPasajero();
+                Pasajero pas = tpas.buscarPasajero(txtRut.Text);
+                if (pas == null || pas.rut == null)
+                {
+                    DialogResult resp = MessageBox.Show("El pasajero no existe. ¿Desea ingresarlo?", "AVISO DE SISTEMA", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (resp == DialogResult.Yes)
+                    {
+                        FrmPasajero frmPas = new FrmPasajero();
+                        frmPas.Show();
+                    }
+                    return;
+                }
+
+                //Verificar que el vuelo exista
+                TVuelo tvlo = new TVuelo();
+                Vuelo vlo = tvlo.buscarVuelo(txtNumVlo.Text);
+                if (vlo == null || vlo.numvlo == null)
+                {
+                    DialogResult resp = MessageBox.Show("El vuelo no existe. ¿Desea ingresarlo?", "AVISO DE SISTEMA", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (resp == DialogResult.Yes)
+                    {
+                        FrmVuelo frmVlo = new FrmVuelo();
+                        frmVlo.Show();
+                    }
+                    return;
+                }
+
+                Reserva res = new Reserva();
                 res.codigo = txtCodigo.Text;
                 res.tipo = cboTipo.Text;
                 res.valor = TReserva.calcularCostoPasaje(cboTipo.Text);
                 res.rut = txtRut.Text;
                 res.nrovuelo = txtNumVlo.Text;
-                int resp = tres.ingresarReserva(res);
-                if (resp > 0)
+                int resultado = tres.ingresarReserva(res);
+                if (resultado > 0)
                 {
                     MessageBox.Show("Reserva ingresada correctamente", "AVISO DE SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //Asignar puntaje si pasajero es Frecuente
-                    TPasajero tpas = new TPasajero();
-                    Pasajero pas = tpas.buscarPasajero(res.rut);
-                    if (pas != null && pas.tipo == "Frecuente")
+                    if (pas.tipo == "Frecuente")
                     {
                         int puntaje = TReserva.obtenerPuntaje(res.tipo);
                         tres.actualizarPuntajePasajero(res.rut, puntaje);

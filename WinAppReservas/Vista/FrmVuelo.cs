@@ -23,8 +23,15 @@ namespace WinAppReservas.Vista
         {
             try
             {
-                Vuelo vlo = new Vuelo();
                 TVuelo tvlo = new TVuelo();
+                //Verificar que no exista
+                Vuelo existente = tvlo.buscarVuelo(txtNumVlo.Text);
+                if (existente != null && existente.numvlo != null)
+                {
+                    MessageBox.Show("Vuelo ya existe en el sistema", "AVISO DE SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                Vuelo vlo = new Vuelo();
                 vlo.numvlo = txtNumVlo.Text;
                 vlo.fecha = dtpFecha.Value;
                 vlo.hora = txtHora.Text;
